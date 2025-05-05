@@ -27,7 +27,6 @@ function renderCarrito(lista) {
     });
   }
 
-  // Total
   let total = 0;
   for (const item of lista) {
     total += parseInt(item.valor.replace("$", "").replace(".", ""));
