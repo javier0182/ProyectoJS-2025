@@ -1,0 +1,73 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0 20px;
+    background-color: #fdfdfd;
+  }
+  
+  .encabezado {
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #97bb99;
+    padding: 16px 20px;
+    border-bottom: 2px solid #ddd;
+  }
+  
+  .encabezado h1 {
+    margin: 0;
+    font-size: 24px;
+    color: #ffffff;
+  }
+  
+  .boton-carrito {
+    text-decoration: none;
+    background-color: #416d49;
+    color: white;
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-weight: bold;
+  }
+  #carrito-header a {
+    text-decoration: none;
+    color: #6b856b;
+    font-weight: bold;
+  }
+  #carrito-container div {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  #carrito-container h3 {
+    margin: 10px 0;
+    color: #333;
+  }
+  
+  .boton-quitar {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .boton-quitar:hover {
+    background-color: #d32f2f;
+  }
+  
+  h3.total {
+    margin-top: 20px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+  }
+  

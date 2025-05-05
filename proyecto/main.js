@@ -1,79 +1,91 @@
-let repetir = true;
+const especialidades = [
+  {
+    id: 1,
+    nombre: "Dermatología",
+    horario: "15 de abril 10:15 hs",
+    valor: "$10.000",
+  },
+  {
+    id: 2,
+    nombre: "Dermatología",
+    horario: "16 de abril 11:15 hs",
+    valor: "$10.000",
+  },
+  {
+    id: 5,
+    nombre: "Dermocosmética",
+    horario: "29 de abril 17:15 hs",
+    valor: "$9.000",
+  },
+  { 
+    id: 6,
+    nombre: "Dermocosmética",
+    horario: "10 de mayo 08:50 hs",
+    valor: "$9.000",
+  },
+  {
+    id: 7,
+    nombre: "Manicura",
+    horario: "10 de mayo 15:20 hs",
+    valor: "$20.000",
+  },
+  {
+    id: 8,
+    nombre: "Manicura",
+    horario: "22 de mayo 09:20 hs",
+    valor: "$20.000",
+  }
+];
 
-while (repetir) {
+let productosCarrito = [];
 
-let menu = parseInt(prompt("Ingrese la especialidad: \n 1- Clínica médica \n 2- Pediatría \n 3- Odontología \n 4- Dermatología \n 5- Cardiología"));
+function imprimirEspecialidadesEnHTML(lista) {
+  const contenedor = document.getElementById("cards-container");
 
-let especialidad = "";
-let fechas = [];
-let seleccion;
+  for (const especialidad of lista) {
+    const card = document.createElement("div");
 
-let fechasCM = ["15/04 a las 10:15hs", "28/04 a las 15:45hs", "05/05 a las 17:00hs", "07/05 a las 08:00hs"];
-let fechasPD = ["20/04 a las 09:40hs", "25/04 a las 12:20hs", "10/05 a las 08:50hs", "17/05 a las 10:05hs"];
-let fechasOD = ["15/04 a las 10:15hs", "28/04 a las 15:45hs", "05/05 a las 17:00hs", "07/05 a las 08:00hs"];
-let fechasDERM = ["20/04 a las 09:40hs", "25/04 a las 12:20hs", "10/05 a las 08:50hs", "17/05 a las 10:05hs"];
+    card.innerHTML = `
+      <h3>${especialidad.nombre}</h3>
+      <p>${especialidad.horario}</p>
+      <p> ${especialidad.valor}</p>
+      <button class="boton-reserva" id="${especialidad.id}">Reservar</button>
+    `;
 
-switch(menu){
-    case 1:
-        especialidad = "Clínica médica";
-        fechas = fechasCM;
-        break;
-    case 2:
-        especialidad = "Pediatría"; 
-        fechas = fechasPD; 
-        break;
-    case 3:
-        especialidad = "Odontología";
-        fechas = fechasOD;
-        break;
-    case 4:
-        especialidad = "Dermatología"; 
-        fechas = fechasDERM;
-        break;
-    case 5:
-        especialidad = "Cardiología";
-        break;
+    contenedor.appendChild(card);
+  }
+
+  activarBotonesReserva(); 
 }
 
-if (especialidad === "Cardiología"){
-    alert("⚠️​ Atención: No hay turnos próximos disponibles para esta especialidad.");
+function activarBotonesReserva() {
+  const botones = document.getElementsByClassName("boton-reserva");
+
+  for (const boton of botones) {
+    boton.addEventListener("click", function(e) {
+      const id = parseInt(e.currentTarget.id);
+      const especialidadSeleccionada = especialidades.find(function(item) {
+        return item.id === id;
+      });
+
+      if (especialidadSeleccionada) {
+        const yaEsta = productosCarrito.some(function(item) {
+          return item.id === especialidadSeleccionada.id;
+        });
+
+        if (!yaEsta) {
+          productosCarrito.push(especialidadSeleccionada);
+          localStorage.setItem("productosCarrito", JSON.stringify(productosCarrito));
+        }
+        console.log("Carrito:", productosCarrito);
+      }
+    });
+  }
 }
 
-if (fechas.length > 0) {
-    let mensaje = "Fechas disponibles para " + especialidad + ":\n";
+imprimirEspecialidadesEnHTML(especialidades);
 
-    for (let i = 0; i < fechas.length; i++) {
-        mensaje += (i + 1) + " - " + fechas[i] + "\n";
-    }
-
-    seleccion = parseInt(prompt(mensaje)); 
-
-    if (seleccion >= 1 && seleccion <= fechas.length) {
-        alert("✅ Se ha confirmado el turno para " + especialidad + " el día " + fechas[seleccion - 1]);
-    }  
-}
-
-if (especialidad === "Clínica médica") {
-    if (fechas[seleccion - 1] === "05/05 a las 17:00hs") {
-        alert("⚠️​ Atención: La fecha seleccionada no se encuentra disponible ");
-    }
-}
-
-if (especialidad === "Pediatría") {
-    if (fechas[seleccion - 1] === "20/04 a las 09:40hs") {
-        alert("⚠️​ Atención: La fecha seleccionada no se encuentra disponible");
-    }
-}
-
-if (especialidad === "Odontología") {
-    if (fechas[seleccion - 1] === "07/05 a las 08:00hs") {
-        alert("⚠️​ Atención: La fecha seleccionada no se encuentra disponible");
-    }
-}
-
-if (especialidad === "Dermatología") {
-    if (fechas[seleccion - 1] === "17/05 a las 10:05hs") {
-        alert("⚠️​ Atención: La fecha seleccionada no se encuentra disponible");
-    }
-}
+let carritoGuardado = localStorage.getItem("productosCarrito");
+if (carritoGuardado) {
+  productosCarrito = JSON.parse(carritoGuardado);
 }
