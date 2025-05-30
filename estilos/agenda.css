@@ -20,6 +20,24 @@ body {
     font-size: 24px;
     color: #ffffff;
   }
+
+  .boton-volver {
+  background-color: #4a6c4a;  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  text-decoration: none;
+  display: inline-block;
+  margin: 15px;
+  transition: background-color 0.3s ease;
+}
+
+.boton-volver:hover {
+  background-color: #83a383;
+  cursor: pointer;
+}
+
   
   .boton-carrito {
     text-decoration: none;
@@ -63,6 +81,20 @@ body {
   .boton-quitar:hover {
     background-color: #d32f2f;
   }
+
+  .boton-modificar{
+    background-color: #6b856b;
+    color: #1b3c2b;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  .boton-modificar:hover{
+    background-color: #8ccaa6;
+  }
   
   h3.total {
     margin-top: 20px;
@@ -71,3 +103,4 @@ body {
     color: #333;
   }
   
+ 

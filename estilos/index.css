@@ -1,0 +1,200 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0 20px;
+    background-color: #fdfdfd;
+  }
+  
+  .encabezado {
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #97bb99;
+    padding: 16px 20px;
+    border-bottom: 2px solid #ddd;
+  }
+  
+  .encabezado h1 {
+    margin: 0;
+    font-size: 24px;
+    color: #ffffff;
+  }
+  
+  .boton-carrito {
+    text-decoration: none;
+    background-color: #416d49;
+    color: white;
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-weight: bold;
+  }
+  #carrito-header a {
+    text-decoration: none;
+    color: #6b856b;
+    font-weight: bold;
+  }
+  
+  #cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 30px;
+  }
+  #cards-container div {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  #cards-container div:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  }
+  #cards-container h3 {
+    margin: 10px 0;
+    color: #333;
+  }
+  .boton-reserva {
+    background-color: #2b4933;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  .boton-reserva:hover {
+    background-color: #014206;
+  }
+
+  header button {
+  background-color: #6da98d;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  margin-left: 8px;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+header button:hover {
+  background-color: #5b947a;
+}
+
+.boton-agenda {
+  background-color: #416d49;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.boton-agenda:hover {
+  background-color: #375c3e;
+}
+
+#modal-login {
+  display: none;
+  position: fixed;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  border: 1px solid #ccc;
+  padding: 30px 20px;
+  border-radius: 10px;
+  z-index: 1000;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  width: 300px;
+  text-align: center;
+}
+
+#modal-login h3 {
+  margin-bottom: 20px;
+  color: #416d49;
+}
+
+#modal-login label {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+  color: #333;
+}
+
+#modal-login input {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+#modal-login button {
+  background-color: #6da98d;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  margin-top: 15px;
+  margin-right: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+#modal-login button:hover {
+  background-color: #5b947a;
+}
+
+#modal-turno {
+  display: none;
+  position: fixed;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  border: 1px solid #ccc;
+  padding: 30px 20px;
+  border-radius: 10px;
+  z-index: 1000;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  width: 300px;
+  text-align: center;
+}
+
+#modal-turno h3 {
+  margin-bottom: 20px;
+  color: #416d49;
+}
+
+#modal-turno select {
+  width: 100%;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  margin-bottom: 20px;
+}
+
+#modal-turno button {
+  background-color: #6da98d;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  margin: 5px;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#modal-turno button:hover {
+  background-color: #5b947a;
+}
